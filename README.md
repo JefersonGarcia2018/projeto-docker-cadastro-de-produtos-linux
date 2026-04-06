@@ -40,7 +40,7 @@ Certifique-se de ter instalado em sua máquina:
 1.  **Clonar o Repositório:**
 
     ```bash
-    git clone <url-do-seu-repositorio>
+    git clone https://github.com/JefersonGarcia2018/projeto-docker-cadastro-de-produtos-linux.git
     cd projeto_simples
     ```
 
