@@ -60,19 +60,7 @@ Certifique-se de ter instalado em sua máquina:
         DB_PASSWORD=root
         ```
 
-3.  **Subir os Containers:**
-
-    ```bash
-    docker compose up -d --build
-    ```
-
-    **Caso precise parar os Containers:**
-
-    ```bash
-    docker compose stop
-    ```
-
-4.  **Instalar Dependências e Migrar Banco:**
+3.  **Instalar Dependências e Migrar Banco:**
 
     **Antes de instalar as Dependências, no arquivo `docker-compose.yml`, você precisa fazer o seguinte:**
 
@@ -85,6 +73,18 @@ Certifique-se de ter instalado em sua máquina:
 
     * descomente a seguinte linha: **command: tail -f /dev/null**
     * comente a seguinte linha: **command: npx quasar dev -m spa --hostname 0.0.0.0**
+
+    **Subir os Containers para poder executar os comandos (composer install - php artisan - npm install):**
+
+    ```bash
+    docker compose up -d --build
+    ```
+
+    **Obs:** caso precise parar os Containers:
+
+    ```bash
+    docker compose stop
+    ```
 
     **Agora, você consiguirá instalar as Dependências e Migrar Banco:**
 
