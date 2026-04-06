@@ -1,0 +1,20 @@
+# Pastas de dependências
+api/vendor/
+spa/node_modules/
+spa/dist/
+
+# Arquivos de ambiente (contêm senhas)
+api/.env
+spa/.env
+
+# Banco de dados local (se usar SQLite)
+api/database/*.sqlite
+
+# Logs e Cache
+api/storage/*.log
+api/bootstrap/cache/*
+
+# Sistema e IDE
+.vscode/
+.idea/
+.DS_Store

@@ -1,0 +1,32 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: projeto-db
+    restart: always
+    environment:
+      MYSQL_DATABASE: laravel_db
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+
+  api:
+    build: ./api
+    container_name: projeto-api
+    volumes:
+      - ./api:/var/www
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    command: php artisan serve --host=0.0.0.0 --port=8000
+
+  spa:
+    build: ./spa
+    container_name: projeto-spa
+    volumes:
+      - ./spa:/app
+    ports:
+      - "9000:9000"
+    stdin_open: true
+    tty: true    
+    command: npx quasar dev -m spa --hostname 0.0.0.0
