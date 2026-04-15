@@ -1,10 +1,12 @@
-FROM node:22
-
-WORKDIR /app
-
+FROM node:22-alpine as build-stage
 RUN npm install -g @quasar/cli
+WORKDIR /app
+COPY package*.json ./
+RUN npm install --ignore-scripts
+COPY . .
+RUN quasar build
 
-EXPOSE 9000
-
-# O comando padrão para desenvolvimento
-CMD ["npm", "run", "dev"]
+FROM nginx:stable-alpine as production-stage
+COPY --from=build-stage /app/dist/spa /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]

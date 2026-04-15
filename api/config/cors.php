@@ -19,7 +19,10 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['http://localhost:9000'],
+    'allowed_origins' => [
+        'http://cadastro.local',
+        'http://localhost:9000',
+    ],
 
     'allowed_origins_patterns' => [],
 
