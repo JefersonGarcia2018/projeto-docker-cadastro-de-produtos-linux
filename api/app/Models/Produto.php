@@ -3,8 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Traits\BelongsToTenant;
 
 class Produto extends Model
 {
-    protected $fillable = ['nome', 'preco', 'estoque'];
+    use BelongsToTenant;
+    
+    protected $fillable = ['codigo', 'nome', 'preco', 'estoque'];
 }

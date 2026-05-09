@@ -22,7 +22,14 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
-        return Produto::create($request->all());
+        $validated = $request->validate([
+            'codigo' => 'nullable|string|max:50',
+            'nome' => 'required|string|max:255',
+            'preco' => 'required|numeric|min:0',
+            'estoque' => 'integer'
+        ]);
+
+        return Produto::create($validated);
     }
 
     /**
@@ -42,8 +49,9 @@ class ProdutoController extends Controller
     
         // Validação básica para evitar erros de tipo
         $validated = $request->validate([
-            'nome' => 'required|string|max:255',
-            'preco' => 'required|numeric|min:0',
+            'codigo' => 'nullable|string|max:50',
+            'nome' => 'sometimes|required|string|max:255',
+            'preco' => 'sometimes|required|numeric|min:0',
             'estoque' => 'integer'
         ]);
 

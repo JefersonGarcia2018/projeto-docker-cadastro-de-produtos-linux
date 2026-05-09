@@ -12,6 +12,8 @@ return new class extends Migration
     public function up(): void {
     Schema::create('produtos', function (Blueprint $table) {
         $table->id();
+        $table->foreignId('tenant_id')->constrained('tenants')->cascadeOnDelete();
+        $table->string('codigo', 50)->nullable();
         $table->string('nome');
         $table->decimal('preco', 10, 2);
         $table->integer('estoque')->default(0);
