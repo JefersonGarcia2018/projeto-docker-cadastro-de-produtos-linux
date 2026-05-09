@@ -18,3 +18,6 @@ api/bootstrap/cache/*
 .vscode/
 .idea/
 .DS_Store
+
+# Outros
+documentacao-do-projeto/
