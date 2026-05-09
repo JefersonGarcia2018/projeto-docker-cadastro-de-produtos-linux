@@ -20,4 +20,4 @@ api/bootstrap/cache/*
 .DS_Store
 
 # Outros
-documentacao-do-projeto/
+/documentacao-do-projeto/
