@@ -13,17 +13,19 @@ services:
     build: ./api
     container_name: projeto-api-github
     volumes:
-      - ./api:/var/www
+      - ./api:/var/www/html
     ports:
       - "8000:8000"
     depends_on:
       - db
     command: php artisan serve --host=0.0.0.0 --port=8000
     # Truque do "tail" para o container não morrer antes da instalação das dependências
-    #command: tail -f /dev/null
+    # command: tail -f /dev/null
 
   spa:
-    build: ./spa
+    build: 
+      context: ./spa
+      target: build-stage
     container_name: projeto-spa-github
     volumes:
       - ./spa:/app
@@ -33,4 +35,4 @@ services:
     tty: true    
     command: npx quasar dev -m spa --hostname 0.0.0.0
     # Truque do "tail" para o container não morrer antes da instalação das dependências
-    #command: tail -f /dev/null
+    # command: tail -f /dev/null
