@@ -1,6 +1,6 @@
 # 📦 Full Stack Project: Laravel 13 + Quasar (Vue 3) + Docker
 
-Este é um projeto de arquitetura **Cliente-Servidor Desacoplada**, desenvolvido com foco em alta performance e isolamento de ambiente utilizando containers. O sistema consiste em uma API robusta e um SPA (Single Page Application) moderno.
+Este é um projeto de arquitetura **Cliente-Servidor Desacoplada**, desenvolvido com foco em alta performance e isolamento de ambiente utilizando contêiners. O sistema consiste em uma API robusta e um SPA (Single Page Application) moderno.
 
 ## 🛠️ Tecnologias e Ferramentas
 
@@ -74,13 +74,13 @@ Certifique-se de ter instalado em sua máquina:
     * descomente a seguinte linha: **command: tail -f /dev/null**
     * comente a seguinte linha: **command: npx quasar dev -m spa --hostname 0.0.0.0**
 
-    **Subir os Containers para poder executar os comandos (composer install - php artisan - npm install):**
+    **Subir os Contêiners para poder executar os comandos (composer install - php artisan - npm install):**
 
     ```bash
     docker compose up -d --build
     ```
 
-    **Obs:** caso precise parar os Containers:
+    **Obs:** caso precise parar os Contêiners:
 
     ```bash
     docker compose stop
@@ -108,6 +108,27 @@ Certifique-se de ter instalado em sua máquina:
     * comente a seguinte linha: **command: tail -f /dev/null**
     * descomente a seguinte linha: **command: npx quasar dev -m spa --hostname 0.0.0.0**
 
+4.  **Após o passo 3, você deve parar os Contêiners e subí-los novamente:**
+
+    **Parar os Contêiners:**
+
+    ```bash
+    docker compose stop
+    ```
+    
+    **Subir os Contêiners:**
+
+    ```bash
+    docker compose up -d --build
+    ```
+
+## 🌐 Acesso ao Ambiente
+
+Após subir os contêiners, as aplicações estarão disponíveis em:
+
+  * **Frontend (Quasar):** [http://localhost:9000](https://www.google.com/search?q=http://localhost:9000)
+  * **Backend (Laravel):** [http://localhost:8000](https://www.google.com/search?q=http://localhost:8000)
+  * **Banco de Dados (MySQL):** Porta `3306`
 
 -----
 
@@ -131,19 +152,9 @@ O projeto inclui um módulo funcional de **Cadastro de Produtos**, demonstrando 
 
 -----
 
-## 🌐 Acesso ao Ambiente
-
-Após subir os containers, as aplicações estarão disponíveis em:
-
-  * **Frontend (Quasar):** [http://localhost:9000](https://www.google.com/search?q=http://localhost:9000)
-  * **Backend (Laravel):** [http://localhost:8000](https://www.google.com/search?q=http://localhost:8000)
-  * **Banco de Dados (MySQL):** Porta `3306`
-
------
-
 ## 🔧 Comandos Úteis
 
-  * **Parar containers:** `docker compose stop`
+  * **Parar contêiners:** `docker compose stop`
   * **Ver logs do sistema:** `docker compose logs -f`
   * **Acessar terminal do PHP:** `docker exec -it projeto-api bash`
   * **Limpar cache do Laravel:** `docker exec -it projeto-api php artisan optimize:clear`

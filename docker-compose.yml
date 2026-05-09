@@ -1,7 +1,7 @@
 services:
   db:
     image: mysql:8.0
-    container_name: projeto-db
+    container_name: projeto-db-github
     restart: always
     environment:
       MYSQL_DATABASE: laravel_db
@@ -11,7 +11,7 @@ services:
 
   api:
     build: ./api
-    container_name: projeto-api
+    container_name: projeto-api-github
     volumes:
       - ./api:/var/www
     ports:
@@ -24,7 +24,7 @@ services:
 
   spa:
     build: ./spa
-    container_name: projeto-spa
+    container_name: projeto-spa-github
     volumes:
       - ./spa:/app
     ports:
